@@ -1,0 +1,38 @@
+.left{
+    display:inline;
+    margin:0;
+}
+.center{
+    display:inline;
+    margin:0;
+}
+.right{
+    display:inline;
+    margin:0;
+}
+.left::before{
+    color:red;
+    font-size: 1em;
+    content: "const ";
+}
+.center::before{
+    content: "Hover"
+}
+.center:hover::before{
+    content: "Click"
+}
+
+.right::before{
+    color:red;
+    font-size: 1em;
+    content:" = ";
+    transition: 2s linear
+}
+.group:hover::after{
+    color:red;
+    font-size: 2em;
+    content:" ( Click ) => {Portfolio}";
+    
+}
+
+  

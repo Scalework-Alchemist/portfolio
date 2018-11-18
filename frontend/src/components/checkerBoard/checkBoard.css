@@ -1,0 +1,42 @@
+.fiveByFive {
+  display: grid;
+  height: 500px;
+  width: 500px;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr ;
+  grid-template-areas:
+    "a1""a2""a3"
+    "b1""b2""b3"
+    "c1""c2""c3"
+  ;
+}
+.fiveByFive{
+  height: 100%;
+  width: 100%;
+}
+.fiveByFive{
+  height: 100%;
+  width: 100%;
+  
+
+  
+}
+.box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.box:nth-child(odd){
+  background-color: white;
+  color:black;
+}
+.box:nth-child(even){
+  background-color: black;
+  color:white;
+}
+.box:nth-child(odd):hover{
+  border:solid black 5px;
+}
+.box:nth-child(even):hover{
+  border:solid white 5px;
+}

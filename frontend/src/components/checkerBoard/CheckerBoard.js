@@ -14,33 +14,33 @@ export const CheckerBoard = () => (
   <div className="CheckerBoardWrapper" style={checkerWrapperStyle}>
     <div className="fiveByFive">
       <div className="a1 box">
-        <h1>a1</h1>
+        <h1>About</h1>
       </div>
       <div className="a2 box">
-        <h1>a2</h1>
+        <h1>Contact</h1>
       </div>
       <div className="a3 box">
-        <h1>a3</h1>
+        <h1>GitHub</h1>
       </div>
 
       <div className="b1 box">
-        <h1>b1</h1>
+        <h1>Project 1</h1>
       </div>
       <div className="b2 box">
-        <h1>b2</h1>
+        <h1>Project 2</h1>
       </div>
       <div className="b3 box">
-        <h1>b3</h1>
+        <h1>Project 3</h1>
       </div>
 
       <div className="c1 box">
-        <h1>d1</h1>
+        <h1>Project 4</h1>
       </div>
       <div className="c2 box">
-        <h1>d2</h1>
+        <h1>Project 5</h1>
       </div>
       <div className="c3 box">
-        <h1>d3</h1>
+        <h1>Project 6</h1>
       </div>
     </div>
   </div>

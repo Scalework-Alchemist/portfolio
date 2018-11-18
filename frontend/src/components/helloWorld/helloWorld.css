@@ -31,7 +31,7 @@
 .group:hover::after{
     color:red;
     font-size: 2em;
-    content:" ( Click ) => {Portfolio}";
+    content:" ( Click ) => (Portfolio)";
     
 }
 

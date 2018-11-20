@@ -1,38 +1,51 @@
-.left{
-    display:inline;
-    margin:0;
+.left {
+    display: inline;
+    margin: 0;
 }
-.center{
-    display:inline;
-    margin:0;
+
+.center {
+    display: inline;
+    margin: 0;
 }
-.right{
-    display:inline;
-    margin:0;
+
+.right {
+    display: inline;
+    margin: 0;
 }
-.left::before{
-    color:red;
+
+.left::before {
+    color: red;
     font-size: 1em;
     content: "const ";
 }
-.center::before{
-    content: "Hover"
+
+.center::before {
+    content: "Hover";
+    text-shadow: 2px 6px 8px rgba(0, 0, 0, 0.541);
 }
-.center:hover::before{
+
+.center:hover::before {
     content: "Click"
 }
 
-.right::before{
-    color:red;
+.right::before {
+    color: red;
     font-size: 1em;
-    content:" = ";
+    content: " = ";
     transition: 2s linear
 }
-.group:hover::after{
-    color:red;
+
+.group:hover::after {
+    color: red;
     font-size: 2em;
-    content:" ( Click ) => (Portfolio)";
-    
+    content: " ( Click ) => (Portfolio)";
+
 }
 
-  
+.group:hover::after {
+    color: red;
+    font-size: 2em;
+    content: " ( Click ) => (Portfolio)";
+    text-shadow: 2px 6px 8px rgba(0, 0, 0, 0.541);
+
+}

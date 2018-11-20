@@ -1,5 +1,6 @@
 import React from "react";
 import "./checkBoard.css";
+import Button from '@material-ui/core/Button/'
 
 const checkerWrapperStyle = {
   display: "flex",
@@ -10,13 +11,13 @@ const checkerWrapperStyle = {
 };
 
 
-export const CheckerBoard = () => (
+export const CheckerBoard = (props) => (
   <div className="CheckerBoardWrapper" style={checkerWrapperStyle}>
     <div className="fiveByFive">
-      <div className="a1 box">
+      <div className="a1 box" onClick={() => props.history.push("/About")}>
         <h1>About</h1>
       </div>
-      <div className="a2 box">
+      <div className="a2 front box ">
         <h1>Contact</h1>
       </div>
       <div className="a3 box">
@@ -24,7 +25,7 @@ export const CheckerBoard = () => (
       </div>
 
       <div className="b1 box">
-        <h1>Project 1</h1>
+        <h1>Resume</h1>
       </div>
       <div className="b2 box">
         <h1>Project 2</h1>

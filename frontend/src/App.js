@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import './transitions.css'
 import { CheckerBoard } from "./components/checkerBoard/CheckerBoard";
 import { Helloworld } from "./components/helloWorld/HelloWorld";
+import { About } from './components/about/About';
 
 class App extends Component {
   constructor() {
@@ -23,7 +24,8 @@ class App extends Component {
           >
             <Switch location={location}>
               <Route exact path="/" component={Helloworld} />
-              <Route exact path="/Portfolio" component={CheckerBoard} />
+              <Route  path="/Portfolio" component={CheckerBoard} />
+              <Route path="/About" component={About}/>
             </Switch>
           </CSSTransition>
         </TransitionGroup>

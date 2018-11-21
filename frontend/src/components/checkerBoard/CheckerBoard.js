@@ -20,7 +20,7 @@ export const CheckerBoard = (props) => (
       <div className="a2 front box ">
         <h1>Contact</h1>
       </div>
-      <div className="a3 box">
+      <div className="a3 box" onClick={()=> window.location = "https://github.com/Scalework-Alchemist"}>
         <h1>GitHub</h1>
       </div>
 

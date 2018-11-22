@@ -17,7 +17,7 @@ export const CheckerBoard = (props) => (
       <div className="a1 box" onClick={() => props.history.push("/About")}>
         <h1>About</h1>
       </div>
-      <div className="a2 front box ">
+      <div className="a2 front box " onClick={() => props.history.push("/Contact")}>
         <h1>Contact</h1>
       </div>
       <div className="a3 box" onClick={()=> window.location = "https://github.com/Scalework-Alchemist"}>

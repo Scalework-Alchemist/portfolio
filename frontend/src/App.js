@@ -5,6 +5,7 @@ import './transitions.css'
 import { CheckerBoard } from "./components/checkerBoard/CheckerBoard";
 import { Helloworld } from "./components/helloWorld/HelloWorld";
 import { About } from './components/about/About';
+import Contact from "./components/contact/Contact";
 
 class App extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class App extends Component {
               <Route exact path="/" component={Helloworld} />
               <Route  path="/Portfolio" component={CheckerBoard} />
               <Route path="/About" component={About}/>
+              <Route path="/Contact" component={Contact}/>
             </Switch>
           </CSSTransition>
         </TransitionGroup>

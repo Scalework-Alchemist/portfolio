@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './contact.css';
 
-export default class Contact extends Component (props) {
+class Contact extends Component {
     constructor(){
         super();
         this.state = {
@@ -34,7 +34,7 @@ export default class Contact extends Component (props) {
                 <form>
                     <h1>Contact Me</h1>
                     <input
-                        name='firstName'
+                        name='name'
                         value={this.state.name}
                         onChange={this.handleChange}
                         type='text'
@@ -45,3 +45,5 @@ export default class Contact extends Component (props) {
         )
     }
 }
+
+export default Contact;

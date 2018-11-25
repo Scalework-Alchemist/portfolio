@@ -1,15 +1,27 @@
 const express = require("express");
 const clientRouter = express.Router();
-const Client = require("../models/clients")
+const Client = require('../models/client');
 
-clientRouter.get("/", (req, res, next) => {
-    Client.find({ client: req.user._id }, (err, clients) => {
+clientRouter.get('/', (req,res,send,next) => {
+    Client.find({}, (err, clients) =>{
+        if (err) {
+            res.status(500);
+            return next(err)
+        }
+        return res.send(clients)
+    })
+})
+
+clientRouter.post("/", (req, res, next)=>{
+   const client = new Client(req.body);
+   client.user = req.user._id
+    client.save(function(err, newClient) {
         if (err) {
             res.status(500);
             return next(err);
         }
-        return res.send(clients);
-    });
-});
+        return res.status(201).send(newClient)
+    })
+})
 
 module.exports = clientRouter;

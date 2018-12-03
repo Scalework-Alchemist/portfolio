@@ -5,7 +5,7 @@ import './transitions.css'
 import { CheckerBoard } from "./components/checkerBoard/CheckerBoard";
 import { Helloworld } from "./components/helloWorld/HelloWorld";
 import { About } from './components/about/About';
-import Contact from "./components/contact/Contact";
+import {Contact} from './components/contact/Contact'
 
 class App extends Component {
   constructor() {

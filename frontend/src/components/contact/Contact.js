@@ -1,39 +1,16 @@
 import React, { Component } from "react";
-import {ContactForm} from "./ContactForm" 
 import "./contact.css";
+import Button from "@material-ui/core/Button"
+import BackButton from "../about/BackButton"
 
-
-class Contact extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: ""
-    };
-  }
-  handleChange = e => {
-    e.persist();
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  clearInputs = () => {
-    this.setState({
-      name: ""
-    });
-  };
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.addClientRequest(this.state).then(response => {
-      this.clearInputs();
-    });
-  };
-  render() {
-    return (
-      <ContactForm/>
-    );
-  }
-}
-
-export default Contact;
+export const Contact = (props) => (
+  <div className="bodyWrapperStyle">
+    <div className="leftPane" style={{ backgroundColor: "rgba(0, 0, 0, 0.863)" }}></div>
+    <div className="rightPane">
+      <div className="sprawlContainer">
+        <h1>Let's Convine</h1>
+        
+      </div>
+    </div>
+  </div>
+)

@@ -5,15 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon mailServer.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Scalework-Alchemist/portfolio.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Michel Ferrer, Scalework Alchemist",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Scalework-Alchemist/portfolio/issues"
   },
@@ -22,13 +22,16 @@
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^6.1.0",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.15",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
+    "nodemailer": "^4.7.0",
     "nodemon": "^1.18.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

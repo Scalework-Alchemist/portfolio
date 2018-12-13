@@ -1,50 +1,73 @@
-// var express = require('express');
-// var path = require('path');
-// var logger = require('morgan');
-// var cookieParser = require('cookie-parser');
-// var bodyParser = require('body-parser');
-// var index = require('./routes/index');
+const express = require("express");
+const path = require("path");
+const logger = require("morgan");
+const bodyParser = require("body-parser");
+const exphbs = require("express-handlebars");
+require("dotenv").config();
+const nodemailer = require("nodemailer");
+const creds = require("./config");
+const port = process.env.PORT || 8000;
+const app = express();
 
+app.use(express.static(path.join(__dirname, "frontend", "build")));
 
-// var app = express();
+//body parsing middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+//message template & output
+app.post("/api/form", (req, res) => {
+  const output = `
+    <p> You have a new client</p>
+    <h3> Contact Details</h3>
+    <ul>
+        <li>Name: ${req.body.name}</li>
+        <li>Company: ${req.body.company}</li>
+        <li>Email: ${req.body.email}</li>
+        <li>Phone: ${req.body.phone}</li>
+    </ul>
+    <h3>Message:</h3>
+    <p>${req.body.message}</p>
+    `;
+  console.log(output);
+  //transporter
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: creds.USER,
+      pass: creds.PASS
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+  // setup email data with unicode symbols
+  let mailOptions = {
+    from: '"mail@michelferrer.com" <mail@michelferrer.com>', // sender address
+    to: ["mail@michelferrer.com", "mekosemail@gmail.com"], // list of receivers
+    subject: "Node Contact Request", // Subject line
+    text: "Hello world?", // plain text body
+    html: output // html body
+  };
 
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
+    res.render("contact", { msg: "Email has been sent" });
+  });
+});
+//server start sequence
+app.use(logger({ format: "dev", immediate: true }));
 
-// app.use(logger('dev'));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+});
 
-// app.use('/', index);
-
-
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
-
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
-// app.listen(3005, ()=> console.log('server running on port 3005'))
-
-// module.exports = app;
+app.listen(port, () => console.log(`yeah we running on port ${port}`));
